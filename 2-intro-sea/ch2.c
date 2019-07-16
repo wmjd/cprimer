@@ -5,6 +5,8 @@ int main(void){
 	x1();
 	x3();
 	x4();
+	x6();
+	x7(3);
 }
 
 void x1(void){
@@ -28,4 +30,17 @@ void jolly(void){
 void deny(void){
 	printf("Which nobody can deny\n");
 }
-
+void x6(void){
+	int toes = 10;
+	int twotoes = toes+toes;
+	int toessq = toes * toes;
+	printf("toes is %d. two toes is %d. toes squared is %d.\n", toes, twotoes, toessq);
+}
+void x7(int n){
+	if(n){
+		for(int i=n; i>0; i--)
+			printf("Smile!");
+		printf("\n");
+		x7(n-1);
+	}	
+}
