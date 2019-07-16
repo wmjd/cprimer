@@ -8,6 +8,8 @@ int main(void){
 	x6();
 	x7(3);
 	x8();
+	x7alt1();
+	x7alt2(3);
 }
 
 void x1(void){
@@ -44,6 +46,27 @@ void x7(int n){
 		printf("\n");
 		x7(n-1);
 	}	
+}
+void x7alt1(void){
+	for(int i=3; i>0; i--){
+		for(int j=i; j>0; j--){
+			printf("SMILE!");
+		}
+		printf("\n");
+	}
+}
+void x7alt2(int n){
+	if(n){
+		x7alt2helper(n);
+		printf("\n");
+		x7alt2(n-1);
+	}
+}
+void x7alt2helper(int n){
+	if(n){
+		printf("smile : ) ");
+		x7alt2helper(n-1);
+	}
 }
 void x8(void){
 	printf("starting:\n");
