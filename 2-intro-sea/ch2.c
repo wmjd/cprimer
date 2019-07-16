@@ -7,6 +7,7 @@ int main(void){
 	x4();
 	x6();
 	x7(3);
+	x8();
 }
 
 void x1(void){
@@ -44,3 +45,17 @@ void x7(int n){
 		x7(n-1);
 	}	
 }
+void x8(void){
+	printf("starting:\n");
+	one_three();
+	printf("done\n");
+}
+void one_three(void){
+	printf("one\n");
+	two();
+	printf("three\n");
+}
+void two(void){
+	printf("two\n");
+}
+
