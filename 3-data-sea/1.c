@@ -54,8 +54,9 @@ void ints(void){
 	printf("f: %f inc(f): %f", f, f+1);
 */	
 	
-	//float underflow
-
+	//float underflow prints 0.000000 many times before ceasing
+	while (foo/2 > 0) {printf("%f\n", foo); foo /= 2;}
+	printf("foo %f:  foo/2.0 %f\n", foo, foo/2.0);
 }
 
 
