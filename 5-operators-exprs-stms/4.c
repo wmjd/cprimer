@@ -11,22 +11,16 @@ int main(void){
 	float rawfeet;
 	float remainder;
 	int qoutient;
-	do{
+ 	while (1){
 		printf("Enter cm: ");
 		scanf("%f", &input);
-		
-		//this code makes sure that quotient is correct. it is.
-		//printf("%f\n", ((input*CMIN) / FTIN));
-		//printf("%d\n", (int) ((input*CMIN) / FTIN) );
-
+		if (input <= 0) break;
 		rawfeet = ((input*CMIN) / FTIN);
 		qoutient = (int) rawfeet;
 		remainder = (rawfeet - qoutient)*FTIN; 
 		printf("%fcm = %dft, %fin\n",
 			input, qoutient, remainder); 
-		
-	} while (input > 0);
-	
+	}
 	return 0;
 }
 
