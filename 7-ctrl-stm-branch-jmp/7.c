@@ -23,7 +23,7 @@ int main(void){
 				(RATE1*300 + RATE2*(gross-300))) :
 			(RATE1*gross) ;  
 
-	printf("Gross pay: %f\nTaxes: %f\nNet pay: %f",
+	printf("Gross pay: %.2f\nTaxes: %.2f\nNet pay: %.2f\n",
 		gross, taxes, gross-taxes);
 
 	return 0;
