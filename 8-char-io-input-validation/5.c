@@ -16,11 +16,11 @@ int main(void){
 	printf("I guess %d is my guess y h or l?\n", guess);
 	
 	while((c=getchar()) != 'y'){
+		
 		if(max == min){
 			printf("You're a fucking liar!");
 			return 1;
 		}
-		printf("max=%d min=%d", max, min);
 		if(c == 'l'){
 			min = guess;
 			guess = (guess + max) / 2 ;
@@ -29,6 +29,10 @@ int main(void){
 			guess = (guess + min) / 2;
 		}
 		printf("I guess %d is my guess y h or l?\n", guess);
+		
+		//flush buffer
+		while(getchar() != '\n')
+			;
 	}
 	printf("I guessed your number %d!", guess);
 	return 0;
