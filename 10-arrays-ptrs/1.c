@@ -18,7 +18,7 @@ int main(void){
 	printf(" YEAR        RAINFALL\n");
 	for(year = 0, total = 0; year < YEARS; year++){
 		for(month = 0, subtot = 0; month < MONTHS; month++){
-			subtot += rain[year][month];
+			subtot += *(*(rain+year)+month);
 		}
 		printf("%5d %15.1f\n", 2010 + year, subtot);
 		total += subtot;
@@ -30,7 +30,7 @@ int main(void){
 	
 	for(month=0; month < MONTHS; month++){
 		for(year=0, subtot=0; year < YEARS; year++)
-			subtot += rain[year][month];
+			subtot += *(*(rain+year)+month);
 		printf("%4.1f", subtot/YEARS);
 	}
 	putchar('\n');	
