@@ -1,4 +1,4 @@
-//fun rets index of max val in double arr
+//fun rets max val in double arr
 
 #include <stdio.h>
 #include <float.h>
