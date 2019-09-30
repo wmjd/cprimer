@@ -20,6 +20,11 @@ int main(void){
 	return 0;
 }
 
+/* readWord
+ * takes second arg, n, the number chars to rea
+ * assumes n+1 space
+ * for terminating null char
+*/
 void readWord(char * a, int n){
 	if(n == 0)
 		return ; //read nothing!
@@ -39,6 +44,6 @@ void readWord(char * a, int n){
 	a[i] = 0; 
 
 	//discard rest of line
-	while(getchar() != '\n')
-		;
+	while(c != '\n')
+		c = getchar();
 }
