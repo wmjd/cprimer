@@ -3,7 +3,7 @@
 
 void fill(int * a, int size){
 	for(int i=0; i<size; i++){
-		a[i] = rand() % 11;
+		a[i] = rand() % 10 +1;
 	} 
 }
 
