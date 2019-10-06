@@ -6,7 +6,6 @@ int main(int argc, char **argv){
 		printf("usage: cp srcFile dstFile\n");
 		return 1;
 	}
-	int c;
 	FILE * inp, * outp;
 	inp = fopen(argv[1],"rb");
 	outp = fopen(argv[2],"wb");
@@ -15,6 +14,7 @@ int main(int argc, char **argv){
 		return 1;
 	}
 	
+	int c;
 	while((c=getc(inp)) != EOF)
 		putc(c,outp);
 
