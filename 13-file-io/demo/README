@@ -1,0 +1,5 @@
+With some text files,
+
+Write these programs:
+(1) read command line args for src and dst file. copy minified src to dst
+(2) play with fseek
