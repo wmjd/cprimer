@@ -1,0 +1,11 @@
+Want to see what happens:
+	open a file for appending
+	setvbuf to _IOFBF for fully buffered mode
+	fputs a string smaller than buf size
+	(I think terminating program & closing the file will flush the buffer and I DON'T want that)
+	infinite loop or block on getchar() to prevent termination
+	. . .
+	While the program is looping/blocked, use shell to check on this file.
+	Will the string be appended?
+	Ctrl-C. Does this cause write?
+	If not, try blocking on getchar(). Does this cause write?
