@@ -6,29 +6,35 @@
 void append(FILE * src, FILE * dst);
 char * s_gets(char * st, int n);
 
-int main(void){
+int main(int argc, char ** argv){
 	FILE * fa, * fs;
 	int files = 0;
-	char file_app[SLEN];
-	char file_src[SLEN];
+//	char file_app[SLEN];
+//	char file_src[SLEN];
 	int ch;
 
-	puts("Enter name of dst file:");
-	s_gets(file_app, SLEN);
-	if((fa=fopen(file_app, "a+")) == NULL){
-		fprintf(stderr, "Can't open %s\n", file_app);
+	if(argc < 3){
+		printf("usage: command dst src1 [src2 ...]\n");
+		exit(EXIT_FAILURE);
+	}
+
+//	puts("Enter name of dst file:");
+//	s_gets(file_app, SLEN);
+	if((fa=fopen(argv[1], "a+")) == NULL){
+		fprintf(stderr, "Can't open %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	if(setvbuf(fa, NULL, _IOFBF, BUFSIZE) != 0){
 		fputs("Can't create output buffer\n", stderr);
 		exit(EXIT_FAILURE);
 	}
-	puts("Enter the name of the first src file (empty line to quit):");
-	while(s_gets(file_src, SLEN) && file_src[0] != '\0'){
-		if(strcmp(file_src, file_app) == 0)
+//	puts("Enter the name of the first src file (empty line to quit):");
+	int i = 2;
+	while((i < argc) && argv[i][0] != '\0'){
+		if(strcmp(argv[1], argv[i]) == 0)
 			fputs("Can't append file to itself\n", stderr);
-		else if((fs=fopen(file_src, "r")) == NULL)
-			fprintf(stderr, "Can't open %s", file_src);
+		else if((fs=fopen(argv[i], "r")) == NULL)
+			fprintf(stderr, "Can't open %s", argv[i]);
 		else{
 			if(setvbuf(fs, NULL, _IOFBF, BUFSIZE) != 0){
 				fputs("Can't create input buffer\n", stderr);
@@ -36,18 +42,19 @@ int main(void){
 			}
 			append(fs, fa);
 			if(ferror(fs) != 0)
-				fprintf(stderr, "Error in reading file %s.\n", file_src);
+				fprintf(stderr, "Error in reading file %s.\n", argv[i]);
 			if(ferror(fa) != 0)
-				fprintf(stderr, "Error in writing file %s.\n", file_app);
+				fprintf(stderr, "Error in writing file %s.\n", argv[1]);
 			fclose(fs);
 			files++;
-			printf("File %s appended.\n", file_src);
-			puts("Next file (empty line to quit):");
+			printf("File %s appended.\n", argv[i]);
+//			puts("Next file (empty line to quit):");
 		}	
+	i++;
 	}
 	printf("Done appending. %d files appended.\n", files);
 	rewind(fa);
-	printf("%s contents:\n", file_app);
+	printf("%s contents:\n", argv[1]);
 	while((ch=getc(fa)) != EOF)
 		putchar(ch);
 	puts("Done displaying.");
