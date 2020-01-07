@@ -34,9 +34,7 @@ int main(int argc, char ** argv){
 		f1 = f2;
 		f2 = temp;
 	}
-	temp = f1;
 	f1 = f2;
-	f2 = temp;
 	while(fgets(buf, BUFLEN, f1))
 		fputs(buf, stdout);
 
