@@ -16,6 +16,7 @@ int main(void){
 	long int pos = 0; 
 	int ch;  //used in loop that outputs file contents from pos
 	int end; //used for bounds checking pos
+	int ret; //ret of scanf
 
 	printf("Enter a file: ");
 	scanf("%s", filename);
@@ -27,12 +28,11 @@ int main(void){
 	fseek(stream, 0L, SEEK_END);
 	end = ftell(stream);
 
-	int ret; //ret of scan
 	loop: { 
 		printf("Enter a position: ");
 		ret = scanf("%ld", &pos);
 		if(!ret){	
-			while((ret = getchar()) != '\n')
+			while(getchar() != '\n')
 				;
 			puts("That is not a valid position.");
 			goto loop;
