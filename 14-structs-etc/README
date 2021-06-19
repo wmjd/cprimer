@@ -1,0 +1,9 @@
+Don't make this mistake again and be careful that these:
+
+for( ... ; dst[i++] = src[k++]; ){ ... }
+for( ... ; dst[i] = src[k]; i++, k++){ ... }
+
+Are not the same. When the test condition fails, the counters are incremented in the first case.
+The counters in the second case are one behind the counters in the first case after the loops finish.
+
+This was causing (in concat'ing & formatting a string in 4.c) the null byte to be written (and not *overwritten* -- actually both cases write a null byte but since the second case does not increment the counters, the next processing (not shown here) will overwrite the nullbyte.
