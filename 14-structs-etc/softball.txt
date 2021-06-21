@@ -1,0 +1,6 @@
+4 Jessie Joybat 5 2 1 1
+3 Oink Piggy 8 3 2 1
+2 Jiminy Cricket 4 2 1 1
+10 Johnny Boy 2 1 1 1
+1 Smiley Face 10 10 10 10
+4 Jessie Joybat 2 1 1 1
